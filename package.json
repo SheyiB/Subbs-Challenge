@@ -1,0 +1,25 @@
+{
+  "name": "subbs-challenge",
+  "version": "1.0.0",
+  "description": "Assesment Solution",
+  "main": "server.js",
+  "scripts": {
+    "test": "mochaa"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SheyiB/Subbs-Challenge.git"
+  },
+  "keywords": [
+    "typescript",
+    "node",
+    "api",
+    "postgres"
+  ],
+  "author": "Elijah Banjo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SheyiB/Subbs-Challenge/issues"
+  },
+  "homepage": "https://github.com/SheyiB/Subbs-Challenge#readme"
+}
