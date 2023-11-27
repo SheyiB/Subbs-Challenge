@@ -1,33 +1,22 @@
 {
-  "name": "subbs-challenge",
-  "version": "1.0.0",
-  "description": "Assesment Solution",
-  "main": "server.js",
-  "scripts": {
-    "test": "mochaa"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SheyiB/Subbs-Challenge.git"
-  },
-  "keywords": [
-    "typescript",
-    "node",
-    "api",
-    "postgres"
-  ],
-  "author": "Elijah Banjo",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SheyiB/Subbs-Challenge/issues"
-  },
-  "homepage": "https://github.com/SheyiB/Subbs-Challenge#readme",
-  "dependencies": {
-    "@types/express": "^4.17.21",
-    "@types/node": "^20.10.0",
-    "express": "^4.18.2",
-    "pg": "^8.11.3",
-    "typeorm": "^0.3.17",
-    "typescript": "^5.3.2"
-  }
+   "name": "typeorm-sample",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM.",
+   "type": "commonjs",
+   "devDependencies": {
+      "ts-node": "10.7.0",
+      "@types/node": "^16.11.10",
+      "typescript": "4.5.2"
+   },
+   "dependencies": {
+      "typeorm": "0.3.17",
+      "reflect-metadata": "^0.1.13",
+      "pg": "^8.4.0",
+      "express": "^4.17.2",
+      "body-parser": "^1.19.1"
+   },
+   "scripts": {
+      "start": "ts-node src/index.ts",
+      "typeorm": "typeorm-ts-node-commonjs"
+   }
 }
