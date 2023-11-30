@@ -1,0 +1,1 @@
+export const swaggerDocument = require('./swagger.json'); 
