@@ -1,4 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, Generated ,PrimaryGeneratedColumn, Column, OneToMany, BeforeInsert } from "typeorm"
+import { Task } from "./Task"
+import * as bcrypt from "bcryptjs"
+import * as jwt from "jsonwebtoken"
 
 @Entity()
 export class User {
@@ -7,13 +10,14 @@ export class User {
     id: number
 
     @Column()
-    firstName: string
+    @Generated("uuid")
+    userId: string
 
     @Column()
-    lastName: string
+    firstname: string
 
     @Column()
-    phone: number
+    lastname: string
 
     @Column()
     email: string
@@ -21,7 +25,29 @@ export class User {
     @Column()
     password: string
 
-    @Column()
-    username: string
+    @OneToMany(() => Task, task => task.user)
+    tasks: Task[];
+
+    @BeforeInsert()
+    async hashPassword() {
+        if (this.password) {
+            const salt = await bcrypt.genSalt(10);
+            this.password = await bcrypt.hash(this.password, salt);
+        }
+    }
+
+    async generateJWT(): Promise<string> {
+        const payload = { id: this.userId };
+        const secret = process.env.JWT_SECRET;
+        const options = { expiresIn: process.env.JWT_EXPIRE };
+
+        return jwt.sign(payload, secret, options);
+    }
+
+    async checkPassword(password: string): Promise<boolean> {
+        return bcrypt.compareSync(password, this.password);
+    }
+
+    
 
 }
